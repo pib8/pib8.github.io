@@ -49,7 +49,7 @@
     document.getElementById('lookup').addEventListener('submit', function (e) {
       e.preventDefault();
       var code = document.getElementById('tag-id').value.trim().toLowerCase();
-      if (code) location.href = '/lf/' + encodeURIComponent(code) + '/';
+      if (code) location.href = '/' + encodeURIComponent(code);
     });
   </script>
 </body>
