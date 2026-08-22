@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Found an item with a QR tag? Enter the tag ID to reach the owner.">
+  <title>TagBack</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true">⌘</span>
+        TagBack
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>Found a tagged item?</h1>
+      <p class="lead">
+        Thank you for helping! Items carrying one of these tags belong to
+        someone who wants them back. Normally the QR code takes you straight
+        to the right page — if you got here instead, enter the tag ID printed
+        on the tag below the QR code.
+      </p>
+      <form class="tag-form tag-form-center" id="lookup">
+        <label for="tag-id">Tag ID</label>
+        <div class="tag-form-row">
+          <input type="text" id="tag-id" name="tag" placeholder="skcq9ij7"
+                 autocomplete="off" autocapitalize="off" spellcheck="false" required>
+          <button type="submit" class="btn btn-primary">Open tag page</button>
+        </div>
+        <p class="hint">The ID is the short code engraved under the QR code.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>TagBack — a simple lost &amp; found QR tag system. No accounts, no apps, no tracking.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('lookup').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var code = document.getElementById('tag-id').value.trim().toLowerCase();
+      if (code) location.href = '/lf/' + encodeURIComponent(code) + '/';
+    });
+  </script>
+</body>
+</html>
